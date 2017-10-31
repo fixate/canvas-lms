@@ -56,7 +56,6 @@ RUN bash -c ' \
   # bash cuz better globbing and comments \
   set -e; \
   \
-	chown -R docker:docker /usr/src/app; \
   sudo -u docker -E env HOME=/home/docker PATH=$PATH bundle install --jobs 8; \
   yarn install --pure-lockfile; \
   COMPILE_ASSETS_NPM_INSTALL=0 bundle exec rake canvas:compile_assets; \
@@ -65,6 +64,7 @@ RUN bash -c ' \
   sudo -u docker -E env HOME=/home/docker PATH=$PATH bundle install --without test development; \
   sudo -u docker -E env HOME=/home/docker PATH=$PATH bundle clean --force; \
   yarn install --prod; \
+	chown -R docker:docker /usr/src/app; \
   \
   # now some cleanup... \
   rm -rf \

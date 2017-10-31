@@ -1,0 +1,4 @@
+development:
+  dsn: 'your-sanbox-dsn-here'
+production:
+  dsn: https://83bb4fed7c6547c4a36ca1d7f4dabb75:715e6b1d3f7d4c7385f91dfe895bb4d0@sentry.io/238032
